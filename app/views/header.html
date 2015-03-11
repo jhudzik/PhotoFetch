@@ -1,0 +1,33 @@
+<header>
+    <nav class="ui page grid stackable">
+        <div class="four wide column">
+            <h1>
+                <a href="/">PhotoFetch</a>
+                <i class="ui icon camera"></i>
+            </h1>
+        </div>
+        <div class="nine wide column right floated">
+            <form name="searchForm" class="ui form" ng-submit="sf.search()"
+                ng-controller="searchFormCtrl as sf" novalidate>
+                <div class="fields">
+                    <div class="ui icon input ten wide field">
+                        <input placeholder="Search Tags"
+                            ng-model="sf.searchParams.tags"/>
+                        <i class="ui icon search"></i>
+                    </div>
+                    <div class="three wide field">
+                        <input type="number" ng-model="sf.searchParams.cap"
+                            placeholder="Cap" min="1" max="300"
+                            ng-required="true"/>
+                    </div>
+                    <div class="three wide field">
+                        <button class="ui button inverted blue"
+                            ng-disabled="searchForm.$invalid">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+</header>

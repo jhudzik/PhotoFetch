@@ -1,0 +1,19 @@
+
+@mixin tablet {
+    @media screen and (min-width: 500px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin transition($transitions...) {
+    transition: $transitions;
+    -moz-transition: $transitions;
+    -o-transition: $transitions;
+    -webkit-transition: $transitions;
+}

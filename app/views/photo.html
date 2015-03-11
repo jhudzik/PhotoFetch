@@ -1,0 +1,34 @@
+<figure ng-class="{odd: pfPhoto.idx % 2}">
+    <pf-loader active-trigger="infoReq" inactive-trigger="infoRes">
+    </pf-loader>
+    <div class="menu">
+        <div ng-click="pfPhoto.remove(pfPhoto.idx)">
+            <i class="remove circle icon"></i>
+        </div>
+        <div ng-click="pfPhoto.getInfo(pfPhoto.idx)">
+            <i class="info circle icon"></i>
+        </div>
+    </div>
+    <img ng-src="{{pfPhoto.src}}"/>
+    <figcaption ng-if="pfPhoto.title || pfPhoto.details">
+        <h4>{{pfPhoto.title}}</h4>
+        <div ng-show="pfPhoto.details" class="ui divider"></div>
+        <ul class="ui list">
+            <li ng-if="pfPhoto.details.description">
+                <i class="newspaper icon"></i>
+                <span ng-bind-html="pfPhoto.details.description"></span>
+            </li>
+            <li ng-if="pfPhoto.details.owner">
+                <i class="user icon"></i>
+                {{pfPhoto.details.owner.username}}
+            </li>
+            <li ng-if="pfPhoto.details.dateTaken">
+                <i class="calendar icon"></i>
+                {{pfPhoto.details.dateTaken | date: 'medium'}}
+            </li>
+            <li ng-repeat="note in pfPhoto.details.notes track by $index">
+                {{note}}
+            </li>
+        </ul>
+    </figcaption>
+</figure>

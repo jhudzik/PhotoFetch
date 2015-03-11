@@ -1,0 +1,90 @@
+
+#search-results {
+    figcaption {
+        background-color: rgba(0,0,0,0.75);
+        color: #fff;
+        display: none;
+        overflow: hidden;
+        padding: 10px 10px 20px;
+        @include desktop() {
+            bottom: 0;
+            display: block;
+            max-height: 35%;
+            opacity: 0;
+            overflow-y: auto;
+            position: absolute;
+            width: 100%;
+        }
+        h4 {
+            font-weight: normal;
+            margin: 10px 0;
+        }
+        li {
+            &::before {
+                // overwrite semantic ui - it uses content rather than
+                // list-style-type to display bullets in a <ul>
+                content: '';
+            }
+            i {
+                color: #6a42cb;
+            }
+        }
+    }
+    figure {
+        display: inline-block;
+        margin: 0 0 5px;
+        position: relative;
+        overflow: hidden;
+        &.odd {
+            margin-left: 2%;
+        }
+        img {
+            // we don't an inline box here, as it causes
+            // figcaption bottom to sit slightly below the img
+            display: block;
+        }
+        .menu {
+            @include transition(right 0.25s ease-in);
+            background-color: rgba(0,0,0,0.75);
+            border-color: #444;
+            border-style: solid;
+            border-width: 0 0 1px 1px;
+            color: #54c8ff;
+            font-size: 1.35rem;
+            position: absolute;
+            right: -40px;
+            top: 0;
+            width: 40px;
+            & > div {
+                border-top: 1px solid #444;
+                cursor: pointer;
+                height: 40px;
+                padding: 8px;
+                &:first-child {
+                    border-top: none;
+                }
+            }
+        }
+        @include tablet {
+            max-width: 48%;
+        }
+        @include desktop {
+            &:hover {
+                figcaption {
+                    @include transition(opacity 0.25s ease-in 0.25s);
+                    opacity: 1;
+                }
+                .menu {
+                    @include transition(right 0.25s ease-in 0.25s);
+                    right: 0;
+                    & > div {
+                        &:hover {
+                            @include transition(color 0.25s ease-in);
+                            color: #2ec330;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

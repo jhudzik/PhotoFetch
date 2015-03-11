@@ -1,0 +1,33 @@
+
+header {
+    background-color: #2c3032;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    h1 {
+        font-weight: normal;
+        letter-spacing: 5px;
+        @include tablet {
+            margin-top: 20px;
+        }
+        a {
+            color: #54c8ff
+        }
+        .icon {
+            color: #2ec330;
+            font-size: 65%;
+            vertical-align: middle;
+        }
+    }
+}
+
+[name='searchForm'] {
+    @include tablet {
+        margin-top: 20px;
+    }
+    button {
+        height: 38px;
+    }
+}

@@ -1,0 +1,59 @@
+// bower:scss
+// endbower
+
+@import 'mixins',
+        'header',
+        'search-results';
+
+body {
+    background-color: #fff;
+    font-size: 1em;
+}
+
+img, video {
+    max-width: 100%;
+}
+
+.ui {
+    &.dimmer {
+        // transition the loader
+        @include transition(
+            z-index 0 ease-in 1.50s,
+            opacity 0.25s ease-in 1.25s
+        );
+        display: block !important;
+        position: fixed;
+        z-index: 0;
+        &.active {
+            color: blue;
+            @include transition(opacity 0.25s ease-in);
+            z-index:2;
+        }
+    }
+    &.page {
+        &.grid {
+            // reduce semantic ui grid padding from 8% -> 5%
+            padding: 0 5%;
+        }
+    }
+}
+
+/*.ui.dimmer {
+    @include transition(opacity 1.5s ease-in 1.5s);
+    @include transition(height 0s linear 5s);
+    display:block;
+    height: 0;
+    opacity: 0 !important;
+    &.active {
+        height: 100vh;
+        @include transition(opacity 0.25s ease-in);
+        opacity: 1 !important;
+    }
+}*/
+
+[ng-view] {
+    @include tablet {
+        // clear header
+        margin-top: 110px;
+    }
+}
